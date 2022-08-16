@@ -1,0 +1,27 @@
+FROM golang:1.18-alpine3.16 as builder
+
+ENV APP_HOME /go/src/hasuniversity
+
+WORKDIR "$APP_HOME"
+
+COPY . "$APP_HOME"
+
+RUN go mod download
+
+RUN go mod verify
+
+RUN go build .
+
+FROM golang:1.18-alpine3.16
+
+ENV APP_HOME /go/src/hasuniversity
+
+RUN mkdir -p "$APP_HOME"
+
+WORKDIR "$APP_HOME"
+
+COPY --from=builder "$APP_HOME"/hasuniversity $APP_HOME
+
+EXPOSE 8000
+
+CMD ["./hasuniversity"]

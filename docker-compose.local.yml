@@ -1,0 +1,18 @@
+services:
+  hasuniversity:
+    build: .
+    ports:
+      - "8200:8200"
+    depends_on:
+      - data
+  cassandra:
+    image: cassandra
+  data:
+    image: ghcr.io/saxypandabear/docker-cqlsh:master
+    volumes:
+      - "./scripts/data.local.cql:/scripts/data.cql"
+    environment:
+      - CQLVERSION=3.4.5
+      - CQLSH_MAX_RETRIES=25
+    depends_on:
+      - cassandra

@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image (Development)
+      run: docker build . --file Dockerfile --tag hasuniversity-dev:$(date +%s)
+    - name: Build the Docker image (Production)
+      run: docker build . --file Dockerfile.production --tag hasuniversity-prod:$(date +%s)

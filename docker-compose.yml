@@ -1,0 +1,9 @@
+services:
+  hasuniversity:
+    build: .
+    ports:
+      - "8200:8200"
+    depends_on:
+      - cassandra
+  cassandra:
+    image: cassandra
