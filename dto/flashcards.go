@@ -97,11 +97,13 @@ func mapToCardSet(m map[string]interface{}) *CardSet {
 	name, ok := m["name"].(string)
 	if !ok {
 		log.Println("failed to get name attribute")
+		return nil
 	}
 
 	tags, ok := m["tags"].([]string)
 	if !ok {
 		log.Println("failed to get tags attribute")
+		return nil
 	}
 
 	lastUpdated, ok := m["last_update_timestamp"].(time.Time)
