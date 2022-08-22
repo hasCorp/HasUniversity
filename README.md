@@ -1,3 +1,5 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hascorp/hasuniversity/Golang%20CI) [![Go Report Card](https://goreportcard.com/badge/github.com/hascorp/hasuniversity)](https://goreportcard.com/report/github.com/hascorp/hasuniversity) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/hascorp/hasuniversity) ![GitHub](https://img.shields.io/github/license/hascorp/hasuniversity)
+
 hasUniversity
 =============
 
